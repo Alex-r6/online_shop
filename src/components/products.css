@@ -1,0 +1,36 @@
+.create_prod_cont {
+    display: flex;
+    gap: 10px;
+}
+
+.prod_item {
+    width: 350px;
+    height: auto;
+    border: black solid 2px;
+    position: relative;
+    padding: 10px;
+    background-color: red;
+}
+
+.cont-g-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* background-color: green; */
+}
+
+.remove_btn {
+    position: absolute;
+    top:0px;
+    right: 5px;
+    background-color: rgb(47, 0, 255);
+
+}
+
+.delete_all_btn {
+    position: absolute;
+    top:0;
+    right: 10px;
+    background-color: red;
+}
