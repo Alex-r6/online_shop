@@ -31,7 +31,8 @@ export const Create_product = () => {
             id : uuidv4(),
             name: name,
             price: price,
-            category: category
+            category: category,
+            // quantity: 1
         }))
         setName('')
         setPrice('')

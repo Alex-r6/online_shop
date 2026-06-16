@@ -1,11 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const product = {
-//     id: 'sada',
-//     name: 'Milk',
-//     price: 12,
-//     category: 'm'
-// }
 const productsSlice = createSlice({
     name: "products",
     initialState: {
@@ -37,13 +31,10 @@ const productsSlice = createSlice({
             )
 
             if(basketProduct){
-                if(basketProduct.quantity <= 4){
                     basketProduct.quantity += 1
-                }
             }else if (product) {
                 state.backet.push({
                     ...product,
-                    quantity: 1
                 })
             }
         
@@ -55,20 +46,43 @@ const productsSlice = createSlice({
         },
         removeProductFromBacket(state, action){
             const index = state.backet.findIndex((elem)=> elem.id === action.payload)
+            const index_prod = state.products.findIndex((elem)=> elem.id === action.payload)
             state.backet.splice(index,1)
+            state.products[index_prod].quantity = 1
         },
         removeAllBasket(state){
             state.backet = []
+            state.products.forEach(elem => {elem.quantity = 1});
         },
         removeAllProducts(state){
             state.products = []
+            state.backet = []
+        },
+        addOneCount(state,action){
+            const product_bak= state.backet.find((elem)=> elem.id === action.payload)
+            if(product_bak){
+                product_bak.quantity += 1
+            }
+        },
+        minusOneCount(state,action){
+            const index = state.backet.findIndex((elem)=> elem.id === action.payload)
+            const product = state.backet[index]
+
+            if(product){
+                product.quantity -= 1
+
+                if(product.quantity === 0){
+                    state.backet.splice(index,1)
+                }
+            }
+
         }
 
     },
 });
 
 
-export const {addProduct, addToBacket,removeProduct, removeProductFromBacket, removeAllBasket, removeAllProducts } = productsSlice.actions;
+export const {addProduct, addToBacket,removeProduct, removeProductFromBacket, removeAllBasket, removeAllProducts, addOneCount, minusOneCount } = productsSlice.actions;
 export default productsSlice.reducer;
 
 

@@ -4,27 +4,38 @@
 }
 
 .prod_item {
-    width: 350px;
-    height: auto;
+    width: 100%;
+    max-width: 150px;
+    height: 200px;
     border: black solid 2px;
     position: relative;
-    padding: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     background-color: red;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prod_item p {
+    margin: 0;
 }
 
 .cont-g-1 {
     position: relative;
     display: flex;
-    flex-direction: column;
     gap: 10px;
-    /* background-color: green; */
+    margin-top: 15px;
+
 }
 
 .remove_btn {
     position: absolute;
-    top:0px;
+    top:1px;
     right: 5px;
     background-color: rgb(47, 0, 255);
+    border-radius: 4px;
 
 }
 
@@ -33,4 +44,16 @@
     top:0;
     right: 10px;
     background-color: red;
+}
+
+.change_count_cont {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.total_price {
+    position: absolute;
+    bottom: -50px;
+    right: 10px;
 }

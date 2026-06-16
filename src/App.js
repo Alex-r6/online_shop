@@ -5,6 +5,7 @@ import { Create_product } from './components/Create_product/Create_product';
 import { Home } from './components/Home/Home';
 import { Header } from './components/Header/Header';
 import { Backet } from './components/Backet/Backet';
+import { Settings } from './components/Settings/Settings';
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/create_product" element={< Create_product />} />
         <Route path="/backet" element={< Backet/>} />
+        <Route path="/settings" element={< Settings/>} />
       </Routes>
     </div>
   );
