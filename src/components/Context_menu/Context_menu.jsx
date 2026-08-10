@@ -4,21 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { toast } from 'react-toastify'
-import { addToNewBacket } from '../../store/redux/backetReducer'
+import backetReducer, { addToNewBacket } from '../../store/redux/backetReducer'
 
 
-export const Context_menu = ({ style, setTo_backet, to_backet }) => {
+export const Context_menu = ({ style, setTo_backet, to_backet, setIs_context }) => {
 
   const dispatch = useDispatch()
-
-  // const add_to_backet = () =>{
-  //     setTo_backet({
-  //         open: false,
-  //         top: null,
-  //         left: null,
-  // dispatch(addToBacket(to_backet.id))
-  // toast.success('Product was added to backet')
-  //     })
 
   const add_to_new_backet = () => {
     dispatch(addToNewBacket(to_backet.id))
@@ -30,11 +21,27 @@ export const Context_menu = ({ style, setTo_backet, to_backet }) => {
   }
 
   return (
-    <div style={style}>
-      {/* <p onClick={add_to_backet}>add to backet</p> */}
-      <p onClick={add_to_new_backet}>add to backet</p>
-
-      <ToastContainer />
-    </div>
+    <div
+    tabIndex={0}
+    autoFocus
+    style={style}
+    onBlur={() =>
+      setTo_backet({
+        open: false,
+        top: null,
+        left: null,
+      })
+    }
+  >
+    <p onClick={add_to_new_backet}>Add to basket</p>
+    <p onClick={() =>
+      setTo_backet({
+        open: false,
+        top: null,
+        left: null,
+      })
+    }>Cancel</p>
+    <ToastContainer />
+  </div>
   )
 }

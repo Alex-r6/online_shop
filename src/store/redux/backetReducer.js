@@ -32,11 +32,13 @@ const backetSlice = createSlice({
             }else{
                 state[id].quantity -= 1
             }
-
         },
+        buyFromBacket(state){
+            return {}
+        }
     },
 });
 
 
-export const {addToNewBacket, removeAllProductsFromBacket, plusOneProductBacket, minusOneProductBacket, delOneProductBacket} = backetSlice.actions;
+export const {addToNewBacket, removeAllProductsFromBacket, plusOneProductBacket, minusOneProductBacket, delOneProductBacket, buyFromBacket} = backetSlice.actions;
 export default backetSlice.reducer;

@@ -12,6 +12,7 @@ export const Header = () => {
         <Link to="/create_product">Create product</Link>
         <Link to="/backet">Backet({Object.keys(backet).length})</Link>
         <Link to="/settings">Settings</Link>
+        <Link to="/history">History</Link>
     </div>
   )
 }

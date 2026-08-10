@@ -6,7 +6,7 @@
 .prod_item {
     width: 100%;
     max-width: 150px;
-    height: 200px;
+    height: auto;
     border: black solid 2px;
     position: relative;
     padding-top: 25px;
@@ -25,6 +25,7 @@
 .cont-g-1 {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 15px;
 
@@ -45,6 +46,14 @@
     right: 10px;
     background-color: red;
 }
+.buy_btn {
+    position: fixed;
+    width: 100px;
+    height: 25px;
+    bottom:10px;
+    right: 10px;
+    background-color:blue;
+}
 
 .change_count_cont {
     display: flex;
@@ -53,7 +62,62 @@
 }
 
 .total_price {
-    position: absolute;
-    bottom: -50px;
+    position: fixed;
+    bottom: 40px;
     right: 10px;
+    font-size: 20px;
+    color: green;
+}
+
+
+
+.edit_input {
+    width: 130px;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    margin: 20px 0;
+}
+
+.change_category_cont {
+    display: flex;
+    gap:20px;
+}
+
+.category_item {
+    position: relative;
+
+}
+
+.delete_categort_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color:red;
+}
+
+.category_item .delete_categort_btn {
+    display: none;
+}
+
+.category_item:hover .delete_categort_btn {
+    display: flex;
+}
+
+.add_cat_btn {
+    margin-left: 5px;
+    background-color: blue;
+    border-radius: 2px;
+    border: transparent;
+}
+
+.history_line {
+    width: 100%;
+    height: 2px;
+    background-color: blue;
 }
