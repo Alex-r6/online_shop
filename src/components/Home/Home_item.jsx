@@ -61,7 +61,7 @@ export const Home_item = ({ item, id, colors_rd, show_to_backet, backet, to_back
 
             
             {/* {Object.keys(backet).includes(String(item.id)) && <Change_count_product id={item.id} />} */}
-            {Object.keys(backet).includes(String(item)) && <Change_count_product id={item} />}
+            {Object.keys(backet).includes(String(id)) && <Change_count_product id={id} />}
 
 
             {is_context && to_backet.open && <Context_menu style={{ position: 'fixed', top: to_backet.top, left: to_backet.left, 

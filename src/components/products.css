@@ -120,4 +120,16 @@
     width: 100%;
     height: 2px;
     background-color: blue;
+    margin-top: 5px;
+}
+
+.clear_all_btn {
+    background-color: red;
+}
+.to_history_btn {
+    background-color: blue;
+}
+
+.total_change_BG_btn {
+    background-color: blue;
 }

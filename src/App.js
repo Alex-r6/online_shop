@@ -9,11 +9,33 @@ import { Backet } from './components/Backet/Backet';
 import { Settings } from './components/Settings/Settings';
 import { Product_info } from './components/product_info/Product_info';
 import { History_more_info } from './components/history_more_info/History_more_info';
+import { useEffect, useState } from 'react';
 
+
+const first_color = JSON.parse(localStorage.getItem('bg_color')) || 'white'
 
 function App() {
+  const [bg_color, setBg_color] = useState(first_color)
+
+  useEffect(()=> {
+    localStorage.setItem('bg_color', JSON.stringify(bg_color),[bg_color])
+  })
+
+  const get_color_part = () => {
+    return Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+
+}
+  const randomColor = () => {
+    let random_color = '#'
+    const r = get_color_part();
+    const g = get_color_part();
+    const b = get_color_part();
+    random_color += r + g + b
+    return setBg_color(random_color)
+  }
+
   return (
-    <div>
+    <div style={{ background: bg_color, minHeight: "100vh" }}>
 
       <Header> </Header>
       <Routes>
@@ -25,7 +47,7 @@ function App() {
         <Route path="/history" element={<History />} />
         <Route path="/history/:id" element={<History_more_info />} />
       </Routes>
-      <button>vrfvg</button>
+      <button className='total_change_BG_btn' onClick={randomColor}>change BG</button>
     </div>
   );
 }

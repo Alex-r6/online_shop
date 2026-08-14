@@ -17,7 +17,8 @@ export const Backet = () => {
   const list = useSelector(a => a.products.products)
   const colors_rd = useSelector(state => state.settings)
   const dispatch = useDispatch()
-  
+
+
   useEffect(() => {
     localStorage.setItem('backet_products', JSON.stringify(backet))
   }, [backet])
@@ -36,7 +37,7 @@ export const Backet = () => {
       const product = { ...elem, quantity: elemProduct.quantity }
       backet_list.push(product)
     }
-    
+  
   }
   const ammount = backet_list.reduce((i, elem) => (elem.quantity * elem.price) + i, 0)
   
@@ -61,8 +62,6 @@ export const Backet = () => {
     }))
     dispatch(buyFromBacket())
   }
-
-  console.log(backet_list);
 
   return (
     <div className='cont-g-1'>
